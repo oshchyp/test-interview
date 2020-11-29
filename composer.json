@@ -1,0 +1,19 @@
+{
+  "name": "adgoal/test-interview",
+  "type": "service",
+  "description": "Return statistics by ads programs",
+  "license": [
+    "proprietary"
+  ],
+  "require": {
+    "php": "^7.4",
+    "ext-json": "*",
+    "ext-pdo": "*"
+  },
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  }
+}
