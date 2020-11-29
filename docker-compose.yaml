@@ -16,6 +16,8 @@ services:
   php:
     container_name: adgoal_test_php
     image: local/adgoal-test/php7.4-dev:master
+    env_file:
+      - .env
     networks:
       - adgoal
     user: 1000:1000
