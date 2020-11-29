@@ -19,7 +19,7 @@ If you not familiar with makefile or you haven't install it on you machine you c
 
 You need to implement two endpoint: authentication and fetching data
 
-1. Auth endpoint:
+**Auth endpoint:**
 
 ```url
 POST /api/auth
@@ -32,20 +32,30 @@ This endpoint must receive json object
   "password": USER_PASSWORD
 }
 ```
-check if the auth data correct (please, do not save user in DB, use simple string comparison) and return to client JWT token. 
-All information about JWT you can find on https://jwt.io/ 
+Please, check if the auth data correct (do not save user in DB, use simple string comparison) and if yes return to client this json object:
+```json
+{
+  "token": "<token_value>"
+}
+```
+where `token_value` is the base64 encoded string which consist of 2 strings concatenated by dot `.`; Example:
+```string
+1646804985.b62e3d1b1c0cdef60f16dbae068dcc0ac7422ff51170fc33498ffa94880bd190
+``` 
+The first part is the timestamp when request was made.<br>The second part is SHA256 HMAC hash of the timestamp value computed with `APP_SECRET_KEY`
 
-2. Data endpoint
+
+**Data endpoint**
 
 ```url
 GET /api/stats
 ```
 
 All request to this endpoint must contain header:
-```json
-Authorization: Bearer <JWT>
+```http
+Authorization: Bearer <token_value>
 ```
-JWT must be valid during `JWT_LIFETIME` seconds. If JWT is invalid or expired return 403 http code.
+Token must be valid during `TOKEN_LIFETIME` seconds. If token is invalid or expired return 403 http code.
 
 In `adgoal` database you can find table `programs`. The schema of this table:
 ```mysql
@@ -62,6 +72,8 @@ Please, select without joins and subqueries ALL networks which has active progra
 
 Return data as json array.
 
-When you'll be ready create pull request.
+#P.S.
+It would be good if your implementation would allow you to add new endpoints quickly and easy.
+When you'll be ready create pull request. May the Force be with you.
 
 
