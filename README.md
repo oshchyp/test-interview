@@ -45,7 +45,7 @@ All request to this endpoint must contain header:
 ```json
 Authorization: Bearer <JWT>
 ```
-JWT must be valid during `JWT_LIFETIME` period
+JWT must be valid during `JWT_LIFETIME` seconds
 
 In `adgoal` database you can find table `programs`. The schema of this table:
 ```mysql
