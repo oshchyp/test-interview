@@ -8,7 +8,7 @@ All constants value writing below in `UPPER_CASE` you can find in .env file.
 
 # Install
 
-We have already prepare docker environment with nginx, php 7.4 and mysql database.
+We have already prepared docker environment with nginx, php 7.4 and mysql database.
 To run this project you only need to run command below.  
 ```bash
 make install
@@ -45,7 +45,7 @@ All request to this endpoint must contain header:
 ```json
 Authorization: Bearer <JWT>
 ```
-JWT must be valid during `JWT_LIFETIME` seconds
+JWT must be valid during `JWT_LIFETIME` seconds. If JWT is invalid or expired return 403 http code.
 
 In `adgoal` database you can find table `programs`. The schema of this table:
 ```mysql

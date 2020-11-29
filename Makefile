@@ -17,10 +17,10 @@ composer-install: ## run composer install
 	docker-compose run --rm --no-deps php sh -lc 'composer install'
 
 .PHONY: composer-update
-composer-update: ## run composer install
+composer-update: ## run composer update
 	docker-compose run --rm --no-deps php sh -lc 'composer update'
 
 .PHONY: readme
-readme: ## run composer install
+readme: ## show readme file
 	docker-compose run --rm --no-deps php sh -lc './bin/readme'
 
