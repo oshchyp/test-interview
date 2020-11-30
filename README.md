@@ -2,7 +2,7 @@
 
 # Introducing
 
-The main aim of this test task is to create small API, with JWT authentication and fetching data from DB.
+The main aim of this test task is to create small API, with token authentication and fetching data from DB.
 
 All constants value writing below in `UPPER_CASE` you can find in .env file.  
 
@@ -74,6 +74,9 @@ Return data as json array.
 
 # P.S.
 It would be good if your implementation would allow you to add new endpoints quickly and easy.
+Please, do not use any frameworks. The main aim of this project is to look at you style and architectural approach.
+If you have any question or you need some clarification about this task you are welcome to write us by email `test.task@adgoal.net`
+  
 When you'll be ready create pull request. May the Force be with you.
 
 
