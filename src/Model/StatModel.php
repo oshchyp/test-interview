@@ -17,6 +17,6 @@ final class StatModel implements StatModelInterface
 
     public function getActiveNetworks(): array
     {
-        return $this->statRepository->findActiveNetworks(self::MIN_RATE);
+        return $this->statRepository->findActiveNetworkIds(self::MIN_RATE);
     }
 }

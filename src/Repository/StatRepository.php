@@ -11,10 +11,10 @@ final class StatRepository
         $this->defaultRepository = $defaultRepository;
     }
 
-    public function findActiveNetworks(int $minRate = 0): array
+    public function findActiveNetworkIds(int $minRate = 0): array
     {
         return $this->defaultRepository->fetchAll(
-            'SELECT n.* FROM networks as n, programs as p WHERE p.network_id = n.id and p.active = 1 and p.rate > :rate',
+            'SELECT p.network_id FROM programs as p WHERE p.active = 1 GROUP by p.network_id HAVING MIN(p.rate) > :rate',
             ['rate' => $minRate]
         );
     }
